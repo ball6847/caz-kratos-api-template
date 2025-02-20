@@ -4,7 +4,7 @@ package ${namespace_single}.v${api_version};
 
 import "errors/errors.proto";
 import "google/api/annotations.proto";
-import "google/protobuf/timestamp.proto";
+// import "google/protobuf/timestamp.proto";
 
 option go_package = "${go_module_name}/api/${namespace_single}/v${api_version};v${api_version}";
 option java_multiple_files = true;
