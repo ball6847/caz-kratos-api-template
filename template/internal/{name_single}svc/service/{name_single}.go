@@ -39,22 +39,9 @@ func (s *${name_pascal}Service) Delete${name_pascal}(ctx context.Context, req *p
 }
 
 func (s *${name_pascal}Service) Get${name_pascal}(ctx context.Context, req *pb.Get${name_pascal}Request) (*pb.Get${name_pascal}Reply, error) {
-	item, err := s.uc.Get${name_pascal}(ctx, req.Id)
-	if err != nil {
-		if errors.Is(err, data.ErrNoRows) {
-			return nil, pb.Error${name_pascal}NotFound("${name_lower} not found")
-		}
-		s.log.WithContext(ctx).Error(err)
-		return nil, pb.ErrorUnknown("error fetching ${name_lower}")
-	}
-	return &pb.Get${name_pascal}Reply{Data: make${name_pascal}Pb(item)}, nil
+	return &pb.Get${name_pascal}Reply{}, nil
 }
 
 func (s *${name_pascal}Service) List${name_pascal}(ctx context.Context, req *pb.List${name_pascal}Request) (*pb.List${name_pascal}Reply, error) {
-	items, err := s.uc.List${name_pascal}(ctx)
-	if err != nil {
-		s.log.WithContext(ctx).Error(err)
-		return nil, pb.ErrorUnknown("error fetching ${name_lower}")
-	}
-	return &pb.List${name_pascal}Reply{Data: make${name_pascal}PbList(items)}, nil
+	return &pb.List${name_pascal}Reply{}, nil
 }
