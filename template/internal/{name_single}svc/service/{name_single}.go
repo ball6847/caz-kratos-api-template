@@ -13,7 +13,7 @@ import (
 
 // ${name_pascal}Service provide service for interprocess communication for ${name_lower} service
 type ${name_pascal}Service struct {
-	pb.Unimplemented${name_pascal}Server
+	pb.Unimplemented${name_pascal}ServiceServer
 
 	uc  *biz.${name_pascal}Usecase
 	log *log.Helper
