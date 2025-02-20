@@ -11,7 +11,7 @@ type ${name_pascal}Usecase struct {
 	repo port.${name_pascal}Repository
 }
 
-func New${name_pascal}Usercase(repo *data.${name_pascal}Repo) *${name_pascal}Usecase {
+func New${name_pascal}Usercase(repo *data.${name_pascal}Repository) *${name_pascal}Usecase {
 	return &${name_pascal}Usecase{repo: repo}
 }
 

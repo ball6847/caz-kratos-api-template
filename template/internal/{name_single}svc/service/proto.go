@@ -3,8 +3,6 @@ package service
 import (
 	v1 "${go_module_name}/api/${namespace_single}/v1"
 	"${go_module_name}/internal/${name_single}svc/core/domain"
-
-	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
 func make${name_pascal}Pb(data *domain.${name_pascal}) *v1.${name_pascal} {
