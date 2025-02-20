@@ -54,13 +54,19 @@ message ${name_pascal} {
 message Create${name_pascal}Request {}
 message Create${name_pascal}Reply {}
 
-message Update${name_pascal}Request {}
+message Update${name_pascal}Request {
+  string id = 1;
+}
 message Update${name_pascal}Reply {}
 
-message Delete${name_pascal}Request {}
+message Delete${name_pascal}Request {
+  string id = 1;
+}
 message Delete${name_pascal}Reply {}
 
-message Get${name_pascal}Request {}
+message Get${name_pascal}Request {
+  string id = 1;
+}
 message Get${name_pascal}Reply {}
 
 message List${name_pascal}Request {}
