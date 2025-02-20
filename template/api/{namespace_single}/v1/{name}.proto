@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package ${namespace_single}.v${api_version};
+
+import "errors/errors.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "${go_module_name}/api/${namespace_single}/v${api_version};v${api_version}";
+option java_multiple_files = true;
+option java_outer_classname = "${namespace_pascal}ProtoV${api_version}";
+option java_package = "dev.kratos.api.${namespace_single}.v${api_version}";
+
+enum ErrorReason {
+  option (errors.default_code) = 500;
+  UNKNOWN = 0 [(errors.code) = 500];
+  ${name_upper}_NOT_FOUND = 1 [(errors.code) = 404];
+}
+
+// ${name_pascal} api
+service ${name_pascal}Service {
+  // Create ${name_kebab}
+  rpc Create${name_pascal}(Create${name_pascal}Request) returns (Create${name_pascal}Reply) {
+    option (google.api.http) = {
+      post: "/api/${namespace_kebab}/v${api_version}/${name_kebab}"
+      body: "*"
+    };
+  }
+  // Update ${name_kebab}
+  rpc Update${name_pascal}(Update${name_pascal}Request) returns (Update${name_pascal}Reply) {
+    option (google.api.http) = {
+      ${http_update_method}: "/api/${namespace_kebab}/v${api_version}/${name_kebab}/{id}"
+      body: "*"
+    };
+  }
+  // Delete ${name_kebab} by id
+  rpc Delete${name_pascal}(Delete${name_pascal}Request) returns (Delete${name_pascal}Reply) {
+    option (google.api.http) = {delete: "/api/${namespace_kebab}/v${api_version}/${name_kebab}/{id}"};
+  }
+  // Get ${name_kebab} by id
+  rpc Get${name_pascal}(Get${name_pascal}Request) returns (Get${name_pascal}Reply) {
+    option (google.api.http) = {get: "/api/${namespace_kebab}/v${api_version}/${name_kebab}/{id}"};
+  }
+  // List ${name_kebab}
+  rpc List${name_pascal}(List${name_pascal}Request) returns (List${name_pascal}Reply) {
+    option (google.api.http) = {get: "/api/${namespace_kebab}/v${api_version}/${name_kebab}"};
+  }
+}
+
+message ${name_pascal} {
+  string id = 1;
+}
+
+message Create${name_pascal}Request {}
+message Create${name_pascal}Reply {}
+
+message Update${name_pascal}Request {}
+message Update${name_pascal}Reply {}
+
+message Delete${name_pascal}Request {}
+message Delete${name_pascal}Reply {}
+
+message Get${name_pascal}Request {}
+message Get${name_pascal}Reply {}
+
+message List${name_pascal}Request {}
+message List${name_pascal}Reply {}
